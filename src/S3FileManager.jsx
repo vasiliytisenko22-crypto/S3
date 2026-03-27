@@ -28,7 +28,7 @@ async function uploadToPresignedUrl(presignedUrl, file, onProgress) {
     };
     xhr.onerror = () => reject(new Error("Помилка мережі під час PUT завантаження"));
     xhr.open("PUT", presignedUrl);
-    // xhr.setRequestHeader("Content-Type", file.type || "application/octet-stream");
+    xhr.setRequestHeader("Content-Type", file.type || "application/octet-stream");
     xhr.send(file);
   });
 }
